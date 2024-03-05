@@ -1,0 +1,16 @@
+@import "src/styles/sass/minimal";
+
+.courses-container {
+  background: $color-black-lighter;
+
+  .description {
+    margin-bottom: 4.8rem;
+  }
+
+  .searchBox {
+    &__inputWrapper {
+      margin: 0 auto;
+      width: 50rem;
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Course Detail Banner            =
+=============================================*/
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 5.6rem;
+  justify-content: center;
+  align-items: center;
+
+  @include mqMaxW(W1100) {
+    grid-template-columns: 1fr;
+    margin-top: calc(50vh - $navbar-height - 15rem);
+    margin-bottom: 8rem;
+  }
+  @include mqMaxW(W600) {
+    margin-top: calc(40vh - $navbar-height - 15rem);
+  }
+
+  &__chip {
+    margin-bottom: 1.6rem;
+  }
+
+  &__description {
+    margin: 3.2rem 0;
+  }
+
+  &__ratings {
+    .star {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+
+  &__ratings + &__description {
+    margin: 0;
+    margin-bottom: 1.8rem;
+  }
+
+  &__offer {
+    margin-bottom: 1.8rem;
+    label {
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  &__price {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    grid-column-gap: 2.4rem;
+
+    .tag {
+      position: absolute;
+      top: 0%;
+      left: 0;
+      right: 0;
+      white-space: nowrap;
+      text-align: start;
+      transform: translateY(-75%);
+
+      &__wrapper {
+        position: relative;
+      }
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-gap: 4rem;
+
+    & > * {
+      max-width: 35rem;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    @include mqMaxW(W600) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__left {
+    justify-self: start;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2.4rem;
+    max-width: 40vw;
+    @include mqMaxW(W1100) {
+      max-width: 75vw;
+    }
+    @include mqMaxW(W600) {
+      max-width: unset;
+    }
+
+    .chip {
+      width: fit-content;
+      height: fit-content;
+      padding: 0.8rem 1.6rem;
+
+      background-color: $color-black-lighter;
+      border-radius: 4rem;
+
+      display: inline-flex;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    .perks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 4rem;
+      grid-row-gap: 2.4rem;
+      justify-content: space-between;
+      @include mqMaxW(W400) {
+        grid-template-columns: 1fr;
+      }
+
+      .perk {
+        display: flex;
+        align-items: flex-start;
+        .checkIcon {
+          margin-right: 2rem;
+        }
+      }
+    }
+
+    .workshop {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4rem;
+
+      display: flex;
+      align-items: center;
+
+      @include mqMaxW(W1100) {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      &__icon {
+        display: block;
+        margin-right: 0.8rem;
+      }
+
+      &__text,
+      &__datetime {
+        white-space: nowrap;
+        flex: 0;
+        @include mqMaxW(W600) {
+          flex: 1;
+        }
+      }
+
+      &__text {
+        color: $color-red;
+        display: flex;
+        align-items: center;
+
+        @include mqMaxW(W1100) {
+          margin-bottom: 0.8rem;
+        }
+      }
+
+      &__datetime {
+        display: flex;
+        @include mqMaxW(W900) {
+          flex-direction: column;
+        }
+
+        width: fit-content;
+        height: fit-content;
+        background-color: $color-yellow-gold;
+        border-radius: 0.4rem;
+        padding: 0.4rem;
+        line-height: 1 !important;
+
+        &--date,
+        &--time {
+          display: inline-block;
+          padding: 0.4rem 1.6rem;
+          border-radius: 0.4rem;
+        }
+        &--date {
+          background-color: $color-yellow-gold;
+          color: $color-black-main;
+        }
+        &--time {
+          color: $color-yellow-gold;
+          background-color: $color-black-main;
+        }
+      }
+    }
+  }
+
+  &__right {
+    align-self: start;
+    padding-top: 12.5rem;
+
+    .video {
+      border-radius: 2rem;
+      overflow: hidden;
+
+      width: 53.3rem;
+
+      box-shadow: 3.5rem -3.5rem 0 rgba($color-black, 0.28);
+
+      @include mqMaxW(W1100) {
+        // margin-top: 0;
+        width: 100%;
+        max-height: unset;
+      }
+    }
+  }
+}
+
+.customContent {
+  width: 60vw !important;
+  height: auto !important;
+  max-width: 60vw !important;
+  max-height: 80vh !important;
+
+  border-radius: 0.8rem !important;
+  box-shadow: none !important;
+  padding: 6.4rem 8rem !important;
+  background-color: $color-black-dark !important;
+}
+
+/*=====  End of Course Detail Banner  ======*/

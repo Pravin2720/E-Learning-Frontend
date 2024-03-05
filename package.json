@@ -1,0 +1,98 @@
+{
+  "name": "@valuationary/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
+    "aphrodite-jss": "2.1.0",
+    "axios": "1.4.0",
+    "classnames": "2.3.2",
+    "dayjs": "1.11.7",
+    "interweave": "13.1.0",
+    "react": "18.2.0",
+    "react-cookie-consent": "8.0.1",
+    "react-dom": "18.2.0",
+    "react-facebook-pixel": "1.0.4",
+    "react-form": "4.0.1",
+    "react-ga": "3.3.1",
+    "react-modal": "3.16.1",
+    "react-multi-carousel": "2.8.3",
+    "react-router-dom": "5.3.4",
+    "recoil": "0.7.7",
+    "sass": "1.62.1",
+    "video.js": "7.21.4",
+    "web-vitals": "3.3.1"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "vite --port=3000",
+    "dev": "vite --port=3000",
+    "build": "vite build",
+    "preview": "vite preview --port=3000",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:react-hooks/recommended"
+    ],
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": [
+        "warn",
+        {
+          "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.1%",
+      "not dead"
+    ],
+    "development": [
+      ">0.1%",
+      "not dead"
+    ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.0.0",
+    "core-js": "3.30.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "prettier": "2.8.8",
+    "qs": "6.11.2",
+    "source-map-explorer": "2.5.3",
+    "vite": "4.3.8",
+    "vite-jsconfig-paths": "2.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "valuationary",
+    "frontend"
+  ],
+  "author": "Pravin Tiwari & Akash Patel",
+  "license": "ISC",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahip1711/Valuationary-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahip1711/Valuationary-frontend/issues"
+  }
+}

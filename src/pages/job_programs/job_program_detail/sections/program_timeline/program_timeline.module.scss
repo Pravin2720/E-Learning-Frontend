@@ -1,0 +1,55 @@
+@import "src/styles/sass/minimal";
+
+.program-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto max-content;
+  grid-gap: 4rem;
+  max-width: 100vw;
+  justify-items: center;
+  justify-content: center;
+
+  .curriculumTile {
+    display: flex;
+    flex-direction: column;
+    padding: 3.2rem 4rem;
+    border-radius: 1.6rem;
+    background: $color-black-main;
+    width: 100%;
+    max-width: 106rem;
+
+    .subtitle {
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  .buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 106rem;
+
+    & a {
+      width: 40rem;
+      &:not(:last-child) {
+        margin-right: 4.8rem;
+      }
+    }
+  }
+
+  @include mqMaxW(W900) {
+    .buttonWrapper {
+      display: flex;
+      flex-direction: column;
+
+      & button:first-child {
+        margin: 0 0 2.4rem 0;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

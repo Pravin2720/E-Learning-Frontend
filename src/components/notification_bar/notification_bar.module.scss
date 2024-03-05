@@ -1,0 +1,110 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Notification Bar            =
+=============================================*/
+
+.notification {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  padding: 0.8rem 0;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+  background-color: $color-blue;
+  z-index: $z-index-notification-bar;
+
+  &__message {
+    display: grid;
+
+    position: relative;
+    width: 100%;
+    height: fit-content;
+  }
+
+  &__block {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    max-width: 100%;
+
+    margin: 0 auto;
+    padding-right: 6rem;
+
+    color: $color-white;
+    font-size: 100%;
+    @include mqMaxW(W900) {
+      font-size: 110%;
+    }
+    @include mqMaxW(W400) {
+      font-size: 125%;
+    }
+
+    &--animate {
+      margin: 0;
+      padding-right: 0;
+
+      animation-name: marquee;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+
+      animation-duration: 20s;
+      @include mqMaxW(W900) {
+        animation-duration: 15s;
+      }
+      @include mqMaxW(W400) {
+        animation-duration: 10s;
+      }
+    }
+  }
+
+  &__line {
+    display: block;
+  }
+
+  &__block,
+  &:hover &__block {
+    animation-play-state: paused;
+  }
+
+  &__visible {
+    transform: translateY(0);
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.16);
+  }
+
+  &__visible &__block {
+    animation-play-state: running;
+  }
+
+  &__closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    justify-self: end;
+    z-index: 1;
+
+    width: 6rem;
+    height: 100%;
+    text-align: left;
+    padding-left: 1rem;
+
+    font-size: 4rem;
+    color: $color-white;
+    background-color: $color-blue;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(calc(100vw - 6rem), 0);
+  }
+  100% {
+    transform: translate(calc(-100%), 0);
+  }
+}
+
+/*=====  End of Notification Bar  ======*/

@@ -1,0 +1,82 @@
+@import "src/styles/sass/minimal";
+/*=============================================
+=            Collapsible Card            =
+=============================================*/
+
+/*----------  Layout  ----------*/
+
+.collapsibleCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  border-radius: inherit;
+  border-bottom: 1px solid;
+  border-color: inherit;
+
+  background-color: $color-black-lighter;
+
+  &--monoDark,
+  &--monoLight {
+    border: none;
+  }
+
+  &--monoDark {
+    background-color: $color-black-main;
+  }
+  &--monoDark &__header {
+    background-color: $color-black-main;
+  }
+
+  &--monoLight {
+    background-color: $color-black-lighter;
+  }
+  &--monoLight &__header {
+    background-color: $color-black-lighter;
+  }
+
+  &__header {
+    display: flex;
+    padding: 4rem 3.2rem;
+    background-color: $color-black-main;
+
+    &--right {
+      display: flex;
+      margin-left: auto;
+    }
+
+    &[data-collapsed="false"] {
+      border-bottom: inherit;
+      border-color: inherit;
+    }
+  }
+
+  &__content {
+    padding: 0 3.2rem;
+
+    &[data-collapsed="false"] {
+      margin: 3.2rem 0;
+      height: 100%;
+      opacity: 1;
+    }
+    &[data-collapsed="true"] {
+      margin: 0;
+      height: 0;
+      opacity: 0;
+    }
+  }
+}
+
+/*----------  Utilities  ----------*/
+
+.chevron {
+  display: inline-flex;
+  transition: transform 0.1s ease;
+  align-items: center;
+  margin-left: 1rem;
+}
+.rotate180 {
+  transform: rotate(-180deg);
+}
+
+/*=====  End of Collapsible Card  ======*/

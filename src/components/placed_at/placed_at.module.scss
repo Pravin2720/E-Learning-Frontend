@@ -1,0 +1,57 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Gallery            =
+=============================================*/
+
+.gallery {
+  padding-bottom: 8rem;
+
+  &__track {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .track {
+    &__item {
+      padding: 2rem 2.5rem;
+      opacity: 1;
+      transition: opacity 0.25s 0.75s linear;
+
+      &[aria-hidden="true"] {
+        opacity: 0;
+        transition: opacity 0.25s linear;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 22rem;
+    height: 22rem;
+    margin: 0 auto;
+    overflow: hidden;
+
+    background-color: $color-white;
+    border-radius: 1rem;
+    border-bottom: 1px solid rgba($color-black, 0.1);
+    box-shadow: 0 0.8rem 0.8rem -0.8rem rgba($color-black, 0.12), 0 0.4rem 0.8rem -0.4rem rgba($color-black, 0.08),
+      0 2.4rem 3.2rem -0.8rem rgba($color-black, 0.04);
+    filter: brightness(0.9);
+
+    .image {
+      user-select: none;
+      pointer-events: none;
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 1rem;
+    }
+  }
+}
+
+/*=====  End of Gallery  ======*/

@@ -1,0 +1,156 @@
+@import "src/styles/sass/minimal";
+
+.react-multi-carousel {
+  &-item {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    z-index: 0;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      flex-shrink: 0 !important;
+    }
+
+    &--active {
+      z-index: 1;
+    }
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &-track {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, transition;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      overflow: visible !important;
+    }
+  }
+
+  &-dot-list {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  &-dot {
+    & button {
+      display: inline-block;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      opacity: 1;
+      box-shadow: none;
+      transition: background 0.5s;
+      border: none;
+      padding: 0;
+      margin: 0 0.8rem;
+      outline: 0;
+      cursor: pointer;
+      background: rgba($color-light-gray, 0.2);
+
+      &:active,
+      &:hover,
+      &:hover:active {
+        background: $color-blue-light;
+      }
+    }
+
+    &--active button {
+      background: $color-blue-light;
+    }
+  }
+}
+
+.react-multiple-carousel {
+  &__arrow {
+    position: absolute;
+    outline: 0;
+    transition: all 0.5s;
+    border-radius: 4rem;
+    z-index: 0;
+    border: 0;
+    background: rgba($color-black, 0.5);
+    min-width: 4rem;
+    min-height: 4rem;
+    opacity: 1;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($color-black, 0.8);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 0.2rem);
+      display: block;
+      width: 40%;
+      height: 0.4rem;
+      background: #fff;
+      z-index: 2;
+      border-radius: 0.2rem;
+    }
+
+    &:disabled {
+      cursor: default;
+      background: rgba($color-black, 0.5);
+    }
+
+    &--left {
+      left: 0;
+      // left: calc(min(76rem, 45vw) - 30vw);
+      &::before,
+      &::after {
+        left: 35%;
+      }
+
+      &::before {
+        transform-origin: top left;
+        transform: rotateZ(45deg) translateY(-0.1rem);
+      }
+
+      &::after {
+        transform-origin: bottom left;
+        transform: rotateZ(-45deg) translateY(0.1rem);
+      }
+    }
+
+    &--right {
+      right: 0;
+      &::before,
+      &::after {
+        right: 35%;
+      }
+
+      &::before {
+        transform-origin: bottom right;
+        transform: rotateZ(45deg) translateY(0.1rem);
+      }
+
+      &::after {
+        transform-origin: top right;
+        transform: rotateZ(-45deg) translateY(-0.1rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@import "src/styles/sass/minimal";
+
+.banner {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 1.2rem));
+  grid-template-rows: max-content;
+  grid-gap: 2.4rem;
+  width: 100%;
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, max-content);
+    grid-gap: 5rem;
+    justify-items: start;
+  }
+
+  &__heading {
+    grid-column: 1 / -1;
+
+    @include mqMaxW(W900) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__button {
+    width: fit-content;
+    margin-top: 2.4rem;
+  }
+
+  &__left {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, max-content);
+    grid-gap: 2.4rem;
+    align-content: center;
+    align-items: center;
+
+    z-index: 1;
+    margin: 27rem 0;
+    @include mqMaxW(W900) {
+      margin: 0;
+      margin-top: calc(10.25rem + 10.25vw);
+    }
+    @include mqMaxW(W400) {
+      margin-top: 11rem;
+    }
+  }
+
+  &__right {
+    margin-top: auto;
+
+    .imageComboWrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+
+      align-items: end;
+
+      position: relative;
+      width: min(50vw, max(68.7rem, calc(50vw - 7.6%)));
+      max-width: min(68.7rem, 100%);
+      height: auto;
+      max-height: 100%;
+      margin-left: auto;
+
+      transform-origin: bottom;
+      // for max to compare the values, both values should have unit defined i.e. 3px / 3rem / 3vw / 3em / 3vh / 3%
+      // minifier is removing `px` from `0px`, so max is failing to compare 0 and o/p from min
+      transform: translateX(max(1px, min(5%, calc(50vw - 152rem / 2))));
+
+      @include mqMaxW(W900) {
+        margin-left: auto;
+        width: min(90vw, max(68.7rem, calc(50vw - 7.6%)));
+      }
+
+      & * {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+
+        display: block;
+
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+      }
+    }
+  }
+}

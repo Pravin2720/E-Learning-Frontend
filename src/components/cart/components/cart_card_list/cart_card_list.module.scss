@@ -1,0 +1,136 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Card List            =
+=============================================*/
+
+.cards {
+  width: 100%;
+  padding: 2.4rem;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  grid-gap: 2.4rem;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: max-content;
+
+  border-radius: 1.6rem;
+
+  &__row {
+    padding: 1.6rem;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba($color-light-gray-dark, 0.1);
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: [logo-start] 17.4rem [logo-end content-start] auto [content-end];
+    grid-template-rows: [logo-start content-start] 13rem [logo-end content-end];
+    grid-gap: 1.6rem;
+    padding: 1.6rem;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px; /* !important */
+    border-radius: inherit;
+  }
+
+  &:hover::before {
+    background-image: $linGrad-H-blue-teal;
+  }
+
+  /*----------  Icon  ----------*/
+
+  &__icon {
+    position: relative;
+    grid-row: logo-start / logo-end;
+    grid-column: logo-start / logo-end;
+
+    display: grid;
+    place-content: center;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: $color-white;
+    border-radius: 0.8rem;
+    overflow: hidden;
+  }
+
+  /*----------  details  ----------*/
+
+  &__content {
+    grid-row: content-start / content-end;
+    grid-column: content-start / content-end;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content auto;
+    grid-gap: 0.8rem;
+
+    .row {
+      display: grid;
+      grid-template-columns: auto max-content;
+      align-items: start;
+      grid-gap: 1.6rem;
+    }
+
+    .description {
+      overflow: overlay;
+    }
+  }
+
+  /*----------  price  ----------*/
+
+  .price {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 1.6rem;
+    align-items: baseline;
+    align-content: end;
+
+    width: fit-content;
+    margin: -0.8rem 0;
+    margin-left: auto;
+
+    &__discountPercentage {
+      color: $color-teal;
+    }
+  }
+
+  /*----------  Utilities  ----------*/
+
+  .text__lineThrough {
+    text-decoration: line-through;
+    color: $color-light-gray;
+  }
+
+  /*----------  Varieties  ----------*/
+
+  &--course {
+    background-color: $color-black-lighter;
+  }
+
+  &--bundle,
+  &--preLaunch {
+    background-color: $color-blue;
+  }
+}
+
+/*=====  End of Card List  ======*/

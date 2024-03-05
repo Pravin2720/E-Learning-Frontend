@@ -1,0 +1,108 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Statistics            =
+=============================================*/
+
+.stats {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content;
+  justify-content: space-between;
+  grid-gap: 8rem;
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 100%;
+    grid-template-rows: max-content;
+  }
+
+  &__title {
+    margin-bottom: 6rem;
+    max-width: 44rem;
+    @include mqMaxW(W1100) {
+      max-width: 44rem;
+    }
+    @include mqMaxW(W900) {
+      max-width: 80vw;
+    }
+  }
+
+  &__right {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    grid-gap: 6rem;
+
+    max-width: 84rem;
+    margin: 0 auto;
+    width: min(150%, 72vw - 44rem);
+    @include mqMaxW(W1100) {
+      width: min(100%, 80vw);
+    }
+
+    .stat {
+      position: relative;
+      width: max-content;
+      padding: 3.2rem 4.8rem;
+      max-width: 100%;
+
+      display: grid;
+      grid-template-columns: 100%;
+      grid-auto-rows: max-content;
+      grid-gap: 1.6rem;
+
+      background-color: $color-black-dark;
+      border-radius: 1.2rem;
+      box-shadow: -2.8rem -3.2rem 5rem rgba($color-black, 0.4);
+
+      &:nth-of-type(2) {
+        margin-bottom: 4rem;
+      }
+
+      @include mqMinW(W1140) {
+        &:nth-of-type(1) {
+          margin-right: 40%;
+        }
+
+        &:nth-of-type(2) {
+          right: 0;
+          margin-left: 40%;
+          transform: translateY(min(-1px, max(-20rem, calc((16rem - 12vw) * 2))));
+        }
+      }
+
+      @include mqMinMaxW(W700, W900) {
+        &:nth-of-type(1) {
+          margin-right: 40%;
+        }
+
+        &:nth-of-type(2) {
+          right: 0;
+          margin-left: 40%;
+          transform: translateY(min(-1px, max(-16rem, calc((5rem - 12vw) * 2))));
+        }
+      }
+
+      &__value {
+        &--up {
+          color: $color-teal;
+          position: relative;
+          margin-left: 3.2rem;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 1.2rem;
+            left: -3.2rem;
+            height: 2.4rem;
+            width: 2.4rem;
+            background-color: currentColor;
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*=====  End of Statistics  ======*/

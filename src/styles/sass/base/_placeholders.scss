@@ -1,0 +1,25 @@
+%job-apply-banner-container {
+  background-image: url("https://valuationary-react-static.s3.ap-south-1.amazonaws.com/assets/cta/cta_bg.svg"),
+    $linGrad-H-blue-teal;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0, center right;
+  padding: 12rem 0;
+  width: 100%;
+  overflow: hidden;
+
+  &:first-child {
+    margin-bottom: 8rem;
+  }
+
+  .cta__btn {
+    background-color: $color-white;
+
+    span {
+      background-image: $linGrad-H-blue-teal;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}

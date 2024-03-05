@@ -1,0 +1,97 @@
+/*=============================================
+=            font variables            =
+=============================================*/
+
+$default-font-size: 2rem;
+
+/*=====  End of font variables  ======*/
+
+/*=============================================
+=            color variables            =
+=============================================*/
+
+$color-blue-dark: #0f1a44;
+$color-blue: #3157e1;
+$color-blue-light: #6f89ea;
+$color-blue-extra-light: #c1cdf6;
+
+$color-pink: #e131b0;
+$color-yellow-dark: #ffae70;
+$color-yellow-gold: #ffdc5d;
+$color-red: #ff3050;
+
+$color-teal: #06d6a0;
+$color-teal-light: #6ae6c6;
+$color-teal-extra-light: #b4f3e3;
+
+$color-white: #ffffff;
+$color-white-bg: #f8f7fb;
+
+$color-black: #000000;
+$color-black-dark: #0e1117;
+$color-black-main: #12151d;
+$color-black-light: #191c24;
+$color-black-lighter: #1e2128;
+
+$color-light-gray-dark: #b8b9bb;
+$color-light-gray: #c4c4c4;
+
+$color-primary: $color-blue;
+$color-secondary: $color-blue-light;
+$color-tertiary: $color-blue-extra-light;
+$color-highlight: $color-teal;
+
+$color-text-primary: #001a49;
+$color-text-secondary: #4f596a;
+$color-text-secondary-light: #f0f0f0;
+
+$color-text-disabled: #4f596a;
+$color-bg-disabled: gainsboro;
+
+/*=====  End of color variables  ======*/
+
+/*=============================================
+=            gradients            =
+=============================================*/
+
+$linGrad-H-blue-teal: linear-gradient(to right, $color-blue, $color-teal);
+$linGrad-H-blue-teal-light: linear-gradient(to right, $color-blue-light, $color-teal-light);
+
+/*=====  End of gradients  ======*/
+
+/*=============================================
+=            grid variables            =
+=============================================*/
+
+$grid-max-width-small: 57rem;
+$grid-max-width: 114rem;
+$grid-max-width-big: 114rem;
+
+$gutter-vertical-small: 6rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-big: 10rem;
+
+$gutter-horizontal-small: 4rem;
+$gutter-horizontal: 6rem;
+$gutter-horizontal-big: 8rem;
+
+/*=====  End of grid variables  ======*/
+
+/*=============================================
+=            z index layers            =
+=============================================*/
+
+/*----------  layer 100  ----------*/
+$z-index-navbar: 100;
+$z-index-notification-bar: 99;
+$z-index-scroll-top: 98;
+
+/*----------  layer 200  ----------*/
+$z-index-cart-overlay: 201;
+$z-index-cart-content: 202;
+$z-index-modal-overlay: 201;
+$z-index-modal-content: 202;
+
+/*=====  End of z index layers  ======*/
+
+$navbar-height: 8.8rem;

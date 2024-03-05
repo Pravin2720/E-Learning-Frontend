@@ -1,0 +1,27 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Vertical layout            =
+=============================================*/
+
+.verticalLayout {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  &__header,
+  &__body {
+    position: relative;
+    width: inherit;
+  }
+
+  &__header {
+    height: $navbar-height;
+  }
+  &__body {
+    height: calc(100vh - $navbar-height);
+  }
+}
+
+/*=====  End of Vertical layout  ======*/

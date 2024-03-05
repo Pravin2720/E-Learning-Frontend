@@ -1,0 +1,242 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Navigation Menu            =
+=============================================*/
+
+.navLink {
+  display: flex;
+  align-items: baseline;
+  width: max-content;
+
+  font-size: inherit;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  color: inherit;
+
+  & > *:not(:last-child) {
+    margin-right: 0.4rem;
+  }
+
+  &:active + .menuWrapper,
+  &:focus + .menuWrapper,
+  &:focus-within + .menuWrapper,
+  &:hover + .menuWrapper {
+    display: block;
+    @include mqMaxW(W900) {
+      display: flex;
+    }
+  }
+
+  @include mqMaxW(W900) {
+    position: relative;
+  }
+}
+
+.disabledLink {
+  user-select: none;
+  cursor: not-allowed;
+  & a {
+    user-select: none;
+    cursor: not-allowed;
+    color: gainsboro;
+    align-items: center;
+  }
+  @include afhfw {
+    filter: none;
+  }
+}
+
+.tag {
+  justify-self: center;
+  align-self: center;
+  display: block;
+  padding: 0.2rem 1rem;
+  margin-top: 0.5rem;
+
+  background-color: $color-blue-light;
+  color: $color-white;
+  word-break: keep-all;
+  border-radius: 0.4rem;
+
+  @include mqMaxW(W900) {
+    font-size: calc(100% / 1.5);
+    margin-top: 0rem;
+    padding: 0 1rem;
+  }
+}
+
+.navMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  z-index: 1;
+  color: $color-light-gray;
+
+  @include afhfw {
+    z-index: 0;
+    color: $color-blue-light;
+    & > .menuWrapper {
+      display: block;
+      z-index: 1;
+      color: $color-white;
+    }
+    @include mqMaxW(W900) {
+      color: $color-white;
+    }
+  }
+
+  @include mqMaxW(W900) {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    height: fit-content;
+    width: 100%;
+    padding: 1.75rem;
+
+    @include afhfw {
+      background-color: $color-blue;
+      border-radius: 1.2rem;
+    }
+  }
+
+  .menuWrapper {
+    position: absolute;
+    top: calc(100% + 3rem);
+
+    &,
+    &.align--left {
+      left: 0;
+      transform: translateX(0);
+    }
+    &.align--center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.align--right {
+      left: unset;
+      right: 0;
+      transform: translateX(0);
+    }
+
+    display: none;
+    // to make sure the menuWrapper is connected to navMenu
+    padding-top: 4.8rem;
+    margin-top: -4.8rem;
+
+    @include afhfw {
+      display: block;
+    }
+
+    @include mqMaxW(W900) {
+      font-size: calc(100% / 1.5);
+      position: relative;
+      top: 0;
+      &,
+      &.align--left,
+      &.align--center,
+      &.align--right {
+        left: 0;
+        right: unset;
+        transform: translateX(0);
+      }
+
+      display: block;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .menuList {
+      position: relative;
+      display: block;
+      width: fit-content;
+      padding: 1.2rem 0.8rem;
+
+      list-style: none;
+      background-color: $color-black-light;
+      border-radius: 0.8rem;
+      border-top: 1px solid rgba($color-blue-extra-light, 0.2);
+      border-bottom: 1px solid rgba($color-blue-extra-light, 0.2);
+      box-shadow: 0 0.8rem 0.8rem -0.8rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.8rem -0.4rem rgba(0, 0, 0, 0.24),
+        0 2.4rem 3.2rem -0.8rem rgba(0, 0, 0, 0.04);
+      // box-Shadow: 0 1.25rem 1rem -1rem rgba(0,0,0,0.15);
+
+      @include mqMaxW(W900) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        margin-top: 1rem;
+
+        border: 0;
+        border-radius: 1rem;
+        box-shadow: none;
+      }
+
+      .menuItem {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+
+        border-radius: 0.8rem;
+        transition: filter 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+
+        margin-bottom: 0.8rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        & .navLink {
+          flex-direction: column;
+
+          display: block;
+          margin: 0 auto;
+          padding: 0.8rem 1.6rem;
+
+          max-width: 25vw;
+          min-width: 100%;
+
+          @include mqMaxW(W900) {
+            display: flex;
+            max-width: 85vw;
+
+            border-radius: 0.4rem;
+            flex-direction: row;
+            .tag {
+              margin-left: 0.6rem;
+            }
+          }
+        }
+
+        @include afhfw {
+          background-color: $color-blue;
+          @include mqMaxW(W900) {
+            background-color: $color-black-light;
+          }
+
+          & .navLink {
+            color: $color-white;
+            @include mqMaxW(W900) {
+              background-color: $color-blue;
+              color: $color-white;
+            }
+          }
+        }
+
+        @include afhfw {
+          filter: brightness(1.1);
+        }
+
+        @include mqMaxW(W900) {
+          margin: 0;
+          border-radius: 1rem;
+          background-color: $color-black-light;
+        }
+      }
+    }
+  }
+}
+
+/*=====  End of Navigation Menu  ======*/

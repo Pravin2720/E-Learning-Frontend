@@ -1,0 +1,120 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Input Field            =
+=============================================*/
+
+.fieldContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-align: start;
+
+  .validationResult {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-left: 0.4rem;
+  }
+
+  .error {
+    outline: 2px solid rgba(red, 0.6) !important;
+    outline-offset: -2px;
+  }
+
+  .success {
+    outline: 2px solid rgba(green, 0.6) !important;
+    outline-offset: -2px;
+  }
+
+  .icon {
+    @include vertically-centered;
+    height: 2.4rem;
+    width: auto;
+    left: 2.4rem;
+    z-index: 1;
+  }
+
+  .fieldInput {
+    z-index: 0;
+
+    &[type="text"],
+    &[type="email"],
+    &[type="password"],
+    &[type="number"] {
+      display: block;
+      width: 100%;
+      padding: 1.4rem 2.8rem;
+
+      color: $color-white;
+      background-color: $color-black-main;
+
+      border: none;
+      border-radius: 0.4rem;
+
+      &:focus-visible {
+        outline: 1px solid $color-white;
+      }
+    }
+
+    &[type="checkbox"] {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.4rem;
+      margin: 1px 1.4rem 0 0.4rem;
+    }
+
+    &WithBtn {
+      &[type="text"],
+      &[type="email"],
+      &[type="password"],
+      &[type="number"] {
+        z-index: 1;
+        margin-right: -1px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &WithLabel {
+      &[type="text"],
+      &[type="email"],
+      &[type="password"],
+      &[type="number"] {
+        &:placeholder-shown ~ .fieldLabel {
+          display: none;
+        }
+
+        & ~ .fieldLabel {
+          position: absolute;
+          margin-left: 2rem;
+          padding: 0 0.8rem;
+          border-radius: 0.4rem;
+          background-color: $color-black-lighter;
+
+          transform: translateY(-50%);
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  .icon ~ .fieldInput {
+    padding-left: 6.8rem;
+  }
+
+  .fieldButton {
+    display: block;
+    width: fit-content;
+    padding: 1.4rem 2.4rem;
+  }
+
+  .fieldInput ~ .fieldButton {
+    border-radius: 0.4rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+/*=====  End of Input Field  ======*/

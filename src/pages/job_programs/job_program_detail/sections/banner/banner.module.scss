@@ -1,0 +1,51 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Job Program Details Banner            =
+=============================================*/
+
+.banner {
+  display: grid;
+  grid-auto-flow: row;
+  margin-bottom: 8rem;
+
+  @include mqMaxW(W1100) {
+    padding-top: calc(50vh - $navbar-height - 15rem);
+  }
+  @include mqMaxW(W600) {
+    padding-top: calc(40vh - $navbar-height - 15rem);
+  }
+
+  &__button {
+    width: fit-content;
+  }
+
+  max-width: 50vw;
+  @include mqMaxW(W1100) {
+    max-width: 65vw;
+  }
+  @include mqMaxW(W900) {
+    max-width: unset;
+  }
+  &__title {
+    margin-bottom: 2rem;
+    // max-width: max(70vw, 50rem);
+  }
+
+  &__description {
+    // max-width: max(50vw, 50rem);
+    margin-bottom: 4rem;
+  }
+
+  .chip {
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem 1.6rem;
+
+    background-color: $color-black-lighter;
+    border-radius: 4rem;
+  }
+}
+
+/*=====  End of Job Program Details Banner  ======*/

@@ -1,0 +1,44 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Terms & Conditions            =
+=============================================*/
+
+.termsConditions {
+  background-color: $color-black-lighter;
+
+  h4 {
+    margin-bottom: 2.4rem;
+  }
+
+  hr {
+    margin-top: 0.8rem;
+    margin-bottom: 4rem;
+    border-color: rgba($color-light-gray, 0.2);
+  }
+
+  .content {
+    text-align: justify;
+  }
+
+  h5 {
+    margin-bottom: 1.4rem;
+  }
+
+  p {
+    margin-bottom: 3.2rem;
+  }
+
+  ol {
+    margin-left: 2rem;
+    ol {
+      margin-left: 4rem;
+    }
+
+    li:last-child {
+      margin-bottom: 1.4rem;
+    }
+  }
+}
+
+/*=====  End of Terms & Conditions  ======*/

@@ -1,0 +1,76 @@
+@import "src/styles/sass/minimal";
+
+.instructors {
+  margin-top: 12rem;
+  display: block;
+
+  &--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    grid-row-gap: 10rem;
+    grid-column-gap: 2rem;
+    justify-content: space-between;
+
+    @include mqMaxW(W1440) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 4rem;
+      justify-content: start;
+    }
+  }
+
+  .instructor {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    grid-gap: 3rem;
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    @include mqMaxW(W600) {
+      grid-gap: 2rem;
+    }
+
+    &--detailed {
+      display: block;
+      text-align: center;
+
+      .instructor__image {
+        border-radius: 0;
+        width: 100%;
+        height: auto;
+        max-width: 70rem;
+        max-height: 46rem;
+        margin: 0 auto;
+      }
+
+      .instructor__description {
+        margin-top: 4.8rem;
+        white-space: normal;
+      }
+    }
+
+    &__image {
+      border-radius: 50%;
+      width: 16rem;
+      height: 16rem;
+      object-fit: cover;
+
+      @include mqMaxW(W600) {
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+
+    &__description {
+      white-space: pre-line;
+      @include mqMaxW(W1440) {
+        white-space: normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Media Presence            =
+=============================================*/
+
+.media {
+  display: grid;
+  grid-template-columns: minmax(30%, min-content) 1fr;
+  grid-gap: 4rem;
+
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+
+  @include mqMaxW(W1200) {
+    grid-template-columns: 1fr;
+  }
+
+  &__left {
+    margin-bottom: 6rem;
+  }
+
+  &__right {
+    display: grid;
+    grid-gap: 3.8rem;
+  }
+
+  &__row {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &--even {
+      justify-content: space-evenly;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    margin: 4rem 2rem;
+    margin-top: 0;
+    padding: 1.6rem;
+
+    background-color: $color-white;
+    border-radius: 1.2rem;
+
+    & > img {
+      display: block;
+      height: auto;
+    }
+
+    &--primary {
+      max-width: 28rem;
+    }
+
+    &--secondary {
+      max-width: 18rem;
+    }
+  }
+}
+
+/*=====  End of Media Presence  ======*/

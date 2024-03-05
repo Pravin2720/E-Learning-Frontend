@@ -1,0 +1,64 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Star Rating            =
+=============================================*/
+
+.starRatings {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  align-items: center;
+  grid-gap: 0.8rem;
+
+  @include mqMaxW(W600) {
+    grid-template-columns: max-content;
+  }
+
+  &__text {
+    @include mqMaxW(W400) {
+      span {
+        display: block;
+      }
+    }
+
+    &--left {
+      line-height: 2.4rem;
+      font-size: 2.4rem;
+      color: #ffdc5d;
+      font-weight: 600;
+    }
+  }
+
+  &__container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__star {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    color: #ffdc5d;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    background-color: #c4c4c4;
+    @supports (mix-blend-mode: color) {
+      mix-blend-mode: color;
+      opacity: unset;
+    }
+  }
+}
+
+/*=====  End of Star Rating  ======*/

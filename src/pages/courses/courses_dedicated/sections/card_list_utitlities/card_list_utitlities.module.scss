@@ -1,0 +1,43 @@
+@import "src/styles/sass/minimal";
+
+.filter {
+  &__options {
+    display: flex;
+    margin: 4rem 0 7rem 0;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 1.2rem;
+      height: 5.6rem;
+      width: 5.6rem;
+      margin-right: 3.2rem;
+      border: 1px solid $color-light-gray-dark;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @include mqMaxW(W600) {
+    &__options {
+      margin: 3.2rem 0 2.4rem 0;
+
+      .icon {
+        padding: 1.5rem;
+        height: 4.2rem;
+        width: 4.2rem;
+        margin-right: 1rem;
+        border-radius: 0.6rem;
+      }
+    }
+  }
+}

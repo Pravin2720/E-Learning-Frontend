@@ -1,0 +1,82 @@
+/*=============================================
+=            Mixins            =
+=============================================*/
+
+@use "sass:list";
+@use "sass:map";
+
+@mixin afhfw() {
+  &:active,
+  &:focus,
+  &:focus-within,
+  &:hover {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin horizontally-centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin vertically-centered {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// MEDIA QUERY MANAGER
+// TODO Automatically calculate em values against px values
+
+$width-media-queries-list: W340 21.25em, W400 25em, W500 31.25em, W550 34.375em, W600 37.5em, W700 43.75em, W800 50em,
+  W900 56.25em, W940 58.75em, W1000 62.5em, W1100 68.75em, W1140 71.25em, W1200 75em, W1266_67 79.16666666666667em,
+  W1350 84.375em, W1440 90em, W1520 95em, W1600 100em, W1688_89 105.5555555555556em, W1920 120em;
+
+$width-media-queries-map: ();
+@each $name, $size in $width-media-queries-list {
+  $width-media-queries-map: map.merge(
+    $width-media-queries-map,
+    (
+      $name: $size,
+    )
+  );
+}
+
+@mixin mqMaxW($breakpoint) {
+  // max width
+  @media only screen and (max-width: map.get($width-media-queries-map, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin mqMinW($breakpoint) {
+  // max width
+  @media only screen and (min-width: map.get($width-media-queries-map, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin mqMinMaxW($min, $max) {
+  // max width
+  @media only screen and (min-width: map.get($width-media-queries-map, $min)) and (max-width: map.get($width-media-queries-map, $max)) {
+    @content;
+  }
+}
+
+/*=====  End of Mixins  ======*/

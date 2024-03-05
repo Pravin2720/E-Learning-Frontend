@@ -1,0 +1,38 @@
+@import "src/styles/sass/minimal";
+
+.userRoleInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 2.4rem;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  &__right {
+    .details {
+      &__title {
+        margin-bottom: 6.4rem;
+      }
+      &__description {
+        ul,
+        ol {
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto max-content;
+
+    &__left {
+      grid-row: 2;
+    }
+
+    &__right {
+      grid-row: 1;
+    }
+  }
+}

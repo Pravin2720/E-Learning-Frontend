@@ -1,0 +1,36 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Spotify Embed            =
+=============================================*/
+
+.spotifyEmbed {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+
+  border: solid 2px transparent; /* !important */
+  background-clip: padding-box; /* !important */
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+    z-index: -1;
+    margin: -2px; /* !important */
+    border-radius: 13px;
+    background: $linGrad-H-blue-teal;
+  }
+
+  & > iframe {
+    height: 232px;
+    width: 100%;
+  }
+}
+
+/*=====  End of Spotify Embed  ======*/

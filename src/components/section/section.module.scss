@@ -1,0 +1,31 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Section            =
+=============================================*/
+
+.section {
+  padding: 12rem 0;
+  width: 100%;
+  height: fit-content;
+  // content-visibility: auto;
+  // contain-intrinsic-size: 100vmin;
+
+  &__title {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  &__description {
+    max-width: 40vw;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+    text-align: center;
+    color: $color-light-gray;
+
+    @include mqMaxW(W900) {
+      max-width: unset;
+    }
+  }
+}
+
+/*=====  End of Section  ======*/

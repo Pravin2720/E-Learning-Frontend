@@ -1,0 +1,17 @@
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+@import "base/resets";
+@import "base/base";
+
+@import "components/buttons";
+@import "components/loaders";
+
+// Rules below will have higher priority than components above
+// WHY?
+// For same classes, CSS rules are overridden on LIFO / Last parsed is Highest priority
+// For different classes, having same specificity, Last parsed is Highest Priority
+
+@import "base/typography";
+@import "base/utilities";

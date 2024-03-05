@@ -1,0 +1,10 @@
+@import "src/styles/sass/minimal";
+
+.programs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, min(52rem, 90vw));
+  grid-auto-rows: auto max-content;
+  grid-gap: 6rem;
+  justify-items: center;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,15 @@
+@import "src/styles/sass/minimal";
+
+.banner {
+  &__title {
+    margin-bottom: 8rem;
+  }
+
+  &__description {
+    margin-top: 3.6rem;
+  }
+
+  &__btn {
+    width: fit-content;
+  }
+}

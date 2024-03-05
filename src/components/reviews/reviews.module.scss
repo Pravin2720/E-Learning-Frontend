@@ -1,0 +1,52 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Reviews            =
+=============================================*/
+
+.reviews {
+  padding-bottom: 8rem;
+  @include mqMaxW(W900) {
+    button:nth-child(3) {
+      display: none;
+    }
+    button:nth-child(2) {
+      display: none;
+    }
+  }
+
+  &__track {
+    justify-content: center;
+    align-items: start;
+  }
+
+  .track {
+    &__item {
+      user-select: text;
+      opacity: 1;
+      transition: opacity 0.25s 0.75s linear;
+
+      &[aria-hidden="true"] {
+        opacity: 0;
+        transition: opacity 0.25s linear;
+        @include mqMaxW(W900) {
+          opacity: 0.25;
+        }
+      }
+    }
+  }
+}
+
+/*----------  Review Card  ----------*/
+
+.listStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.cardStyle {
+  background-color: $color-black-lighter;
+}
+
+/*=====  End of Reviews  ======*/

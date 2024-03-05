@@ -1,0 +1,62 @@
+@import "src/styles/sass/global";
+
+body {
+  color: $color-white;
+}
+
+.content-max-width-alignment {
+  max-width: min(80vw, 152rem);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: fit-content;
+  @include mqMaxW(W1520) {
+    max-width: 152rem;
+  }
+  @include mqMaxW(W1440) {
+    max-width: 90vw;
+  }
+}
+
+.link-with-img {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  & > img {
+    height: auto;
+    width: 1.6rem;
+    margin-right: 0.8rem;
+  }
+}
+
+// following classes are for specific features and can be broken easily by class name or structure changes
+
+nav {
+  [class*="navMenu"] > a.active {
+    color: $color-white;
+    :before {
+      content: "";
+      position: absolute;
+      top: calc(100% + 1rem - 1px);
+
+      width: 100%;
+      height: 1px;
+      color: inherit;
+      background-color: $color-white;
+      border-radius: 1px;
+
+      @include mqMaxW(W900) {
+        content: none;
+      }
+    }
+  }
+
+  // &:hover a.active:before {
+  //   content: none;
+  // }
+}
+
+a,
+button {
+  touch-action: manipulation;
+}

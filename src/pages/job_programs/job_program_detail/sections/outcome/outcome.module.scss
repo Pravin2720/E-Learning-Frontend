@@ -1,0 +1,69 @@
+@import "src/styles/sass/minimal";
+
+.outcome {
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5.6rem;
+    justify-items: center;
+    justify-content: center;
+
+    @include mqMaxW(W1000) {
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content 1fr;
+    }
+
+    &Left {
+      grid-row: 1 / 2;
+      .header {
+        &__title {
+          margin-bottom: 4.8rem;
+        }
+      }
+    }
+
+    &Right {
+      margin-left: auto;
+      border-radius: 1.6rem;
+      overflow: hidden;
+
+      @include mqMaxW(W1000) {
+        grid-row: 2 / 3;
+        width: 100%;
+      }
+
+      .video {
+        width: 53rem;
+
+        @include mqMaxW(W1000) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 12rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: max-content;
+    grid-column-gap: 7.2rem;
+    grid-row-gap: 2.4rem;
+
+    @include mqMaxW(W1000) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mqMaxW(W400) {
+      grid-template-columns: 1fr;
+    }
+
+    .outcome-step {
+      display: flex;
+      align-items: flex-start;
+
+      .checkIcon {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

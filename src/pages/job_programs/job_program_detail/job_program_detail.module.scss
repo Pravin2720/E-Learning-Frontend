@@ -1,0 +1,177 @@
+@import "src/styles/sass/minimal";
+
+.banner-container {
+  position: relative;
+  z-index: 0;
+  background-color: $color-black-main;
+  overflow: hidden;
+  min-height: 87.6rem;
+
+  .bannerBG {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    max-height: min(87.6rem, calc(90vh - $navbar-height));
+    max-width: 70%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: flex-end;
+
+    @include mqMaxW(W1100) {
+      width: 100%;
+      max-width: unset;
+      max-height: min(87.6rem, calc(50vh - $navbar-height));
+      justify-content: center;
+    }
+
+    @include mqMaxW(W600) {
+      max-height: min(87.6rem, calc(40vh - $navbar-height));
+    }
+
+    &__image {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+
+      @include mqMaxW(W1100) {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      &--h {
+        background-image: linear-gradient(to right, $color-black-main 0%, transparent 30%);
+      }
+      &--v {
+        background-image: linear-gradient(to top, $color-black-main 0%, transparent 15%);
+      }
+    }
+
+    &__intro {
+      position: absolute;
+      bottom: 15rem;
+      right: 0;
+
+      padding: 2rem 12rem;
+      background-image: linear-gradient(to right, transparent calc(0%), $color-black calc(100%));
+      background-position: 12rem 0;
+      background-repeat: no-repeat;
+      text-align: end;
+
+      @include mqMaxW(W1100) {
+        bottom: 5rem;
+        padding-right: 6rem;
+      }
+      @include mqMaxW(W800) {
+        display: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
+
+.glow {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  border-radius: 50%;
+  background-color: $color-pink;
+
+  &--1 {
+    top: 1%;
+    left: 0;
+    width: 17.2rem;
+    height: 17.2rem;
+    filter: blur(17rem);
+  }
+}
+
+// .infoGrid-container {
+//   padding-top: 0 !important;
+//   padding-bottom: 8rem !important;
+//   background-color: $color-black-main;
+// }
+
+.roleInfo-container {
+  background-color: $color-black-dark;
+}
+
+.program-overview-container {
+  background-color: $color-black-light;
+}
+
+.outcome-container {
+  background-color: $color-black-dark;
+}
+
+.program-timeline-container {
+  background-color: $color-black-light;
+}
+
+.user-requirements-container {
+  background-color: $color-black-dark;
+}
+
+.gallery-container {
+  background-color: $color-black-main;
+}
+
+.instructor-container {
+  background-color: $color-black-light;
+}
+
+.reviews-container {
+  background-color: $color-black-dark;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-color: $color-blue;
+
+    filter: blur(25rem);
+    z-index: -1;
+  }
+  &::after {
+    bottom: 10%;
+    left: -1%;
+  }
+  &::before {
+    top: 10%;
+    right: 5%;
+  }
+}
+
+.program-fee-container {
+  background-color: $color-black-light;
+}
+
+.job-apply-banner-container {
+  @extend %job-apply-banner-container;
+}
+
+.faq-container {
+  background-color: $color-black-dark;
+}

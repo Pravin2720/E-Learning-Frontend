@@ -1,0 +1,21 @@
+@import "src/styles/sass/minimal";
+
+.about {
+  .learnings {
+    &__list {
+      margin-top: 3.6rem;
+      column-count: 2;
+      @include mqMaxW(W900) {
+        column-count: 1;
+      }
+    }
+    &__step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2.4rem;
+      .checkIcon {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

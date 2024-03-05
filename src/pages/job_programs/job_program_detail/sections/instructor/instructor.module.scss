@@ -1,0 +1,58 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Instructor            =
+=============================================*/
+
+.instructor {
+  display: grid;
+  grid-template-columns: min(47rem, 47vw) 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 4.8rem;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin-top: 15rem;
+
+  &__image {
+    max-width: 47rem;
+    max-height: 47rem;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  &__right {
+    .name {
+      margin-bottom: 2rem;
+    }
+
+    .designation {
+      margin-bottom: 3.5rem;
+
+      ol,
+      ul {
+        list-style: none;
+      }
+    }
+  }
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto max-content;
+
+    &__image {
+      width: 24rem;
+      height: 24rem;
+    }
+
+    &__right {
+      .name {
+        margin-bottom: 2rem;
+        justify-content: center;
+        justify-items: center;
+      }
+    }
+  }
+}
+
+/*=====  End of Instructor  ======*/

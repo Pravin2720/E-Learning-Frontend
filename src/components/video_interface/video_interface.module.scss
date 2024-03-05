@@ -1,0 +1,52 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Video Interface            =
+=============================================*/
+
+.videoInterface {
+  position: relative;
+  background-color: $color-black;
+  border-radius: 1rem;
+  box-shadow: 0 0.8rem 0.8rem -0.8rem rgba(0, 0, 0, 0.24), 0 0.4rem 0.8rem -0.4rem rgba(0, 0, 0, 0.16),
+    0 2.4rem 3.2rem -0.8rem rgba(0, 0, 0, 0.08);
+  // box-shadow: 0 2.75rem 1rem -2rem rgba(0, 0, 0, 0.15);
+
+  &__element {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  &__controls {
+    position: absolute;
+    display: flex;
+    top: 100%;
+    width: 100%;
+
+    .control__btn {
+      padding: 0.4rem 1rem;
+      background-color: transparent;
+      color: $color-white;
+      font-weight: 600;
+      text-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+  }
+}
+
+/*=====  End of Video Interface  ======*/

@@ -1,0 +1,71 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Modal            =
+=============================================*/
+
+.customContent {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: max-content !important;
+  height: max-content !important;
+  z-index: $z-index-modal-content;
+
+  padding: 1.6rem 3.2rem;
+  background-color: $color-black-dark !important;
+}
+
+/*=====  End of Modal  ======*/
+
+.modal {
+  &__form {
+    max-width: 50rem;
+    width: 100%;
+
+    margin-top: 4.2rem;
+    margin-bottom: 3.6rem;
+
+    display: grid;
+    grid-gap: 2.4rem;
+    place-content: center;
+    place-items: center;
+  }
+
+  &__button {
+    width: 100%;
+    background-color: $color-black-light;
+    margin-top: 2.4rem;
+  }
+}
+
+.form {
+  &__layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 2.4rem;
+    grid-row-gap: 4rem;
+
+    .input__size {
+      grid-column: span 8;
+
+      &--isd {
+        grid-column: span 3;
+        @include mqMaxW(W600) {
+          grid-column: span 5;
+        }
+      }
+
+      &--contact {
+        grid-column: span 5;
+        @include mqMaxW(W600) {
+          grid-column: span 8;
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}

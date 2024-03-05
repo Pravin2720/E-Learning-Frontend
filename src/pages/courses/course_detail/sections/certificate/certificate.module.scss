@@ -1,0 +1,64 @@
+@import "src/styles/sass/minimal";
+
+.certificate {
+  display: grid;
+  grid-gap: 10rem;
+
+  &__image {
+    display: grid;
+    width: min(74.1rem, calc(90vw - 40rem - 12rem));
+
+    @include mqMaxW(W1440) {
+      width: min(74.1rem, calc(90vw - 40rem - 6rem));
+    }
+    @include mqMaxW(W900) {
+      width: 100%;
+    }
+  }
+
+  .benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 7rem;
+    margin-left: 3.6rem;
+    &__item {
+      display: flex;
+      .icon {
+        z-index: 0;
+        position: relative;
+        width: 4.8rem;
+        height: 4.8rem;
+        margin-right: 2rem;
+
+        img {
+          width: 4.8rem;
+          height: 4.8rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: -1rem;
+
+          height: 95%;
+          width: 95%;
+          border-radius: 100%;
+          background-color: $color-black-dark;
+
+          z-index: -1;
+        }
+      }
+
+      .description {
+        width: 60%;
+        margin-top: 1.2rem;
+      }
+    }
+  }
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto max-content;
+  }
+}

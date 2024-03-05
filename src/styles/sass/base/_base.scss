@@ -1,0 +1,73 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* ::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+} */
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+html {
+  // This defines value of 1rem
+  font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
+
+  @include mqMaxW(W1600) {
+    font-size: 50%; // 1rem = 8px; 8px/16px = 50%
+  }
+
+  @include mqMaxW(W900) {
+    font-size: 50%; // 1rem = 8px; 8px/16px = 50%
+  }
+
+  @include mqMaxW(W400) {
+    font-size: 37.5%; // 1rem = 6px; 6px/16px = 25%
+  }
+
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: $color-black-main;
+
+  font-size: $default-font-size;
+}
+
+::selection {
+  color: $color-black;
+  background-color: $color-blue-extra-light;
+}
+
+/* @media only screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+} */
+
+ul {
+  list-style-image: url(https://valuationary-react-static.s3.ap-south-1.amazonaws.com/assets/icons/ArrowDown.svg);
+}

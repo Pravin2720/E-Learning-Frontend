@@ -1,0 +1,70 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            InfoGrid            =
+=============================================*/
+
+.infoGrid {
+  position: relative;
+  // transform: translateY(calc(-1 * min(50%, 15rem)));
+  white-space: pre-line;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(18%, auto));
+  grid-template-rows: max-content;
+  grid-row-gap: 3rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+
+  padding: 3.8rem 2.6rem;
+  border-radius: 1.6rem;
+  background: $color-black-light;
+  box-shadow: 0 1.6rem 3.2rem rgba($color-black, 0.32);
+
+  @include mqMaxW(W1100) {
+    padding: 2.4rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+
+    & div:last-child {
+      grid-column: span 2;
+    }
+  }
+
+  @include mqMaxW(W600) {
+    padding: 2.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+
+  & > div {
+    display: grid;
+    grid-template-rows: minmax(9.6rem, max-content) auto;
+    grid-row-gap: 1.2rem;
+
+    padding: 0 4.6rem;
+    border-right: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      to bottom,
+      transparent 10%,
+      rgba($color-light-gray-dark, 0.2) 10%,
+      rgba($color-light-gray-dark, 0.2) 90%,
+      transparent 90%
+    );
+
+    &:last-child {
+      border-right: none;
+    }
+
+    @include mqMaxW(W1100) {
+      grid-template-rows: minmax(4.4rem, max-content) auto;
+
+      padding: 0 2.4rem;
+      border-right: none;
+    }
+  }
+}
+
+/*=====  End of InfoGrid  ======*/

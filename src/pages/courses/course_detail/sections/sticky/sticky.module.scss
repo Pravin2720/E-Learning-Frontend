@@ -1,0 +1,61 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Sticky            =
+=============================================*/
+
+.sticky {
+  width: 100%;
+  display: grid;
+  grid-template-columns: calc(min(152rem, 80vw) - 52rem) 40rem;
+  grid-template-rows: auto;
+  grid-column-gap: 12rem;
+  justify-content: end;
+
+  @include mqMaxW(W1520) {
+    grid-template-columns: calc(152rem - 46rem) 40rem;
+    grid-column-gap: 6rem;
+  }
+
+  @include mqMaxW(W1440) {
+    grid-template-columns: calc(90vw - 46rem) 40rem;
+  }
+
+  @include mqMaxW(W1100) {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+  }
+
+  &__right {
+    grid-row: 1 / 2;
+    grid-column: -2 / -1;
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5rem;
+    height: fit-content;
+
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    grid-gap: 2.4rem;
+
+    @include mqMaxW(W1100) {
+      grid-row: 1 / 2;
+      position: relative;
+      top: 0;
+      padding-bottom: 15rem;
+      justify-content: center;
+    }
+  }
+
+  &__left {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    @include mqMaxW(W1100) {
+      grid-row: 2 / 3;
+    }
+  }
+}
+
+/*=====  End of Sticky  ======*/

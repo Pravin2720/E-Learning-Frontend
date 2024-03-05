@@ -1,0 +1,36 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Course Price            =
+=============================================*/
+
+.price {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+  grid-column-gap: 2.4rem;
+}
+
+.buttons {
+  display: grid;
+  width: 100%;
+  grid-gap: 2.4rem;
+  margin-top: 1.6rem;
+}
+
+.tag {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+  text-align: start;
+  transform: translateY(-75%);
+
+  &__wrapper {
+    position: relative;
+  }
+}
+
+/*=====  End of Course Price  ======*/

@@ -1,0 +1,104 @@
+@import "src/styles/sass/minimal";
+
+.banner-container {
+  padding: 0 !important;
+  background-color: $color-black-main;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-image: url("https://valuationary-react-static.s3.ap-south-1.amazonaws.com/assets/banner/bg.webp");
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.what-is-job-program-container {
+  background-color: $color-black-dark;
+  padding: 15rem 0 !important;
+}
+
+.list-job-programs-container {
+  background-color: $color-black-dark;
+  padding: 15rem 0 !important;
+}
+
+.how-program-works-container {
+  position: relative;
+  z-index: 0;
+  padding: 15rem 0 !important;
+  background-color: $color-black-light;
+  overflow: hidden;
+
+  .title,
+  .description {
+    text-align: left;
+    max-width: 100%;
+  }
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 28.3rem;
+    height: 26.3rem;
+    border-radius: 50%;
+    background-color: $color-blue;
+
+    filter: blur(25rem);
+    z-index: -1;
+  }
+  &::after {
+    bottom: 10%;
+    left: -1%;
+  }
+  &::before {
+    top: 10%;
+    right: 5%;
+  }
+}
+
+.user-take-up-programs-container {
+  background-color: $color-black-dark;
+}
+
+.program-fee-container {
+  background-color: $color-black-light;
+}
+
+.reviews-container {
+  z-index: 0;
+  background-color: $color-black-dark;
+  position: relative;
+  overflow: hidden;
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-color: $color-blue;
+
+    filter: blur(25rem);
+    z-index: -1;
+  }
+  &::after {
+    bottom: 10%;
+    left: -1%;
+  }
+  &::before {
+    top: 10%;
+    right: 5%;
+  }
+}
+
+.job-apply-banner-container {
+  @extend %job-apply-banner-container;
+}
+
+.faq-container {
+  background-color: $color-black-dark;
+}

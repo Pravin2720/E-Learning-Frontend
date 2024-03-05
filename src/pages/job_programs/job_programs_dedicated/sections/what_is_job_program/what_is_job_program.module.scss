@@ -1,0 +1,43 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            What Is Job Program            =
+=============================================*/
+
+.what_is_job_program {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-gap: 2.4rem;
+  justify-content: center;
+  align-items: start;
+  justify-items: center;
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto max-content;
+  }
+
+  &__left {
+    .details {
+      &__title {
+        margin-bottom: 7.6rem;
+      }
+      &__description p {
+        margin-bottom: 3rem;
+        max-width: 67.6rem;
+      }
+    }
+  }
+
+  &__right {
+    max-width: 74.6rem;
+    max-height: 71.1rem;
+
+    transform: scale(1.273) translate(-1rem, 5rem);
+    @include mqMaxW(W900) {
+      transform: none;
+    }
+  }
+}
+
+/*=====  End of What is Job Program  ======*/

@@ -1,0 +1,87 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Accordion            =
+=============================================*/
+
+/*----------  Layout  ----------*/
+
+.accordion {
+  position: relative;
+
+  &__utility {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    &Button {
+      padding: 0.8rem 1rem;
+      background-color: transparent;
+      color: $color-blue;
+      text-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    border: 0.1rem solid #262830;
+    border-radius: 2rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 0.8rem 0.8rem -0.8rem rgba($color-black, 0.12), 0 0.4rem 0.8rem -0.4rem rgba($color-black, 0.08),
+      0 2.4rem 3.2rem -0.8rem rgba($color-black, 0.04);
+  }
+
+  &--full &__list {
+    grid-gap: 2.4rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0.8rem;
+    overflow: initial;
+  }
+
+  &__item {
+    border-color: inherit;
+  }
+  &--full &__item {
+    border-radius: inherit;
+  }
+
+  &__subItem {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    .subItem {
+      display: flex;
+      align-items: center;
+
+      &__tags {
+        margin-left: auto;
+      }
+    }
+  }
+
+  /*----------  Utilities  ----------*/
+
+  .chevron {
+    margin-right: 1rem;
+  }
+  .extraMargin {
+    margin-bottom: 2rem;
+  }
+  .youtubeWrapper {
+    // max-width: 56rem;
+    // max-height: 31.5rem;
+    height: auto;
+    margin-left: auto;
+    margin-bottom: 3rem;
+  }
+}
+
+/*=====  End of Accordion  ======*/

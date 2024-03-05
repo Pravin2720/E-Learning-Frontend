@@ -1,0 +1,99 @@
+// aspect ratio box
+.aspect-ratio-box-wrapper {
+  position: relative;
+  width: 100%;
+}
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  &::before {
+    height: 0;
+    width: 1px;
+    content: "";
+    margin-left: -1px;
+    float: left;
+    padding-top: 56.25%;
+  }
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+.aspect-ratio-box-square {
+  position: relative;
+  width: 100%;
+  &::before {
+    height: 0;
+    width: 1px;
+    content: "";
+    margin-left: -1px;
+    float: left;
+    padding-top: 100%;
+  }
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+.imageWrapper {
+  overflow: hidden;
+
+  &__centered {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  max-width: 100%;
+  max-height: 100%;
+  width: fit-content;
+  border-radius: inherit;
+
+  .image {
+    display: block;
+    border-radius: inherit;
+
+    @supports (aspect-ratio: auto) {
+      aspect-ratio: auto;
+    }
+
+    &--portrait {
+      @extend .image;
+      height: 100%;
+      width: auto;
+    }
+
+    &--landscape {
+      @extend .image;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.zMargin {
+  margin: 0 !important;
+}
+.zPadding {
+  padding: 0 !important;
+}
+
+.window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    overflow: auto;
+    overflow: overlay;
+  }
+}

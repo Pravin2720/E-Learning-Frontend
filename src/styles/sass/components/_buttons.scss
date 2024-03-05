@@ -1,0 +1,183 @@
+.button {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 1.8rem 3.6rem 0 rgba(0, 0, 0, 0.2);
+  transition-property: background-color, color, border, filter, box-shadow;
+  transition-duration: 0.2s;
+
+  &__style {
+    &--solid {
+      background-color: $color-blue;
+      border: 0;
+      color: $color-white;
+
+      &:hover {
+        background-color: $color-blue-light;
+      }
+      &:active:hover,
+      &:active {
+        background-color: $color-blue;
+        filter: brightness(0.9);
+      }
+    }
+    &--outlined {
+      border: 1px solid;
+      border-color: currentColor;
+      color: $color-blue-light;
+
+      &:hover {
+        color: $color-white;
+      }
+      &:active:hover,
+      &:active {
+        color: $color-blue-light;
+        filter: brightness(0.8);
+      }
+    }
+    &--stripped {
+      border-radius: 0;
+      color: $color-blue-light;
+
+      box-shadow: none;
+
+      &:hover {
+        color: $color-white;
+      }
+      &:active:hover,
+      &:active {
+        filter: brightness(0.8);
+      }
+    }
+
+    &--white {
+      background-color: $color-white;
+
+      &:hover {
+        background-color: $color-teal-extra-light;
+        text-shadow: 0 0 1px rgba($color-black, $alpha: 0.2);
+      }
+      &:active:hover,
+      &:active {
+        background-color: $color-teal-extra-light;
+        text-shadow: 0 0 1px rgba($color-black, $alpha: 0.2);
+        filter: brightness(1.1);
+      }
+
+      & * {
+        background-image: $linGrad-H-blue-teal;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+
+    &--black {
+      background-color: $color-black-main;
+
+      &:hover {
+        background-color: $color-black-dark;
+        text-shadow: 0 0 1px rgba($color-black, $alpha: 0.2);
+      }
+      &:active:hover,
+      &:active {
+        background-color: $color-black;
+        text-shadow: 0 0 1px rgba($color-black, $alpha: 0.2);
+        filter: brightness(1.1);
+      }
+    }
+  }
+
+  &__size {
+    &--lean {
+      font-size: 2rem;
+      line-height: 2.8rem;
+
+      padding: 1.2rem 3.2rem;
+      border-radius: 1rem;
+
+      @include mqMaxW(W400) {
+        padding: 1.33rem 2.67rem;
+      }
+    }
+
+    &--compact {
+      font-size: 2rem;
+      line-height: 2.8rem;
+
+      padding: 1.4rem 2.8rem;
+      border-radius: 0.4rem;
+
+      @include mqMaxW(W400) {
+        padding: 1.33rem 2.33rem;
+      }
+    }
+
+    &--sm {
+      font-size: 2rem;
+      line-height: 2.8rem;
+
+      padding: 1.6rem 3.2rem;
+      border-radius: 1rem;
+
+      @include mqMaxW(W400) {
+        padding: 1.33rem 2.67rem;
+        border-radius: 0.8rem;
+      }
+    }
+
+    &--lg {
+      font-size: 2.4rem;
+      line-height: 3.6rem;
+
+      border-radius: 1.2rem;
+      padding: 2.4rem 4.8rem;
+
+      @include mqMaxW(W400) {
+        padding: 2rem 4rem;
+        border-radius: 0.8rem;
+      }
+    }
+  }
+
+  &__highlight {
+    background-image: $linGrad-H-blue-teal;
+
+    padding: 2px;
+    margin: -2px;
+
+    &--lean {
+      @extend .button__highlight;
+      border-radius: 1rem;
+    }
+
+    &--compact {
+      @extend .button__highlight;
+      border-radius: 0.4rem;
+    }
+
+    &--sm {
+      @extend .button__highlight;
+      border-radius: 1rem;
+    }
+
+    &--lg {
+      @extend .button__highlight;
+      border-radius: 1.2rem;
+    }
+  }
+
+  &:disabled,
+  &__disabled {
+    color: $color-text-disabled !important;
+    background-color: $color-bg-disabled !important;
+    pointer-events: auto !important;
+    user-select: none !important;
+    cursor: not-allowed !important;
+  }
+}

@@ -1,0 +1,51 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Requirements            =
+=============================================*/
+
+.requirements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.4rem;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  @include mqMaxW(W900) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto max-content;
+  }
+
+  &__left {
+    .details {
+      &__title {
+        margin-bottom: 4.8rem;
+      }
+      &__audience {
+        margin-bottom: 7.6rem;
+      }
+      &__requirements {
+        .label {
+          display: block;
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      &__audience,
+      &__requirements {
+        ul,
+        ol {
+          margin-left: 2rem;
+        }
+      }
+
+      &__ctaButton {
+        margin-top: 6.2rem;
+        width: fit-content;
+      }
+    }
+  }
+}
+
+/*=====  End of Requirements  ======*/

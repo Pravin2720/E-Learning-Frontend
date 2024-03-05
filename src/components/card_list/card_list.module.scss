@@ -1,0 +1,365 @@
+@import "src/styles/sass/minimal";
+
+/*=============================================
+=            Card List            =
+=============================================*/
+.cards {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 42.2rem);
+  grid-gap: 9.6rem;
+  justify-content: space-evenly;
+
+  @include mqMaxW(W1688_89) {
+    grid-gap: 6.4rem 4.8rem;
+  }
+  @include mqMaxW(W900) {
+    grid-gap: 4.8rem 3.6rem;
+  }
+  @include mqMaxW(W400) {
+    grid-template-columns: repeat(auto-fill, 38rem);
+  }
+
+  &--list {
+    grid-template-columns: 100%;
+    grid-auto-flow: row;
+    grid-auto-rows: 29.8rem;
+    grid-gap: 6.4rem;
+  }
+}
+
+.card {
+  position: relative;
+  display: grid;
+
+  grid-template-columns: [logo-start content-start] 100% [content-end logo-end];
+  grid-template-rows: [logo-start] 26rem [logo-end content-start] auto [content-end];
+
+  border-radius: 1.6rem;
+  box-shadow: 0 0.4rem 0.4rem -0.4rem rgba($color-black, 0.08), 0 0.2rem 0.2rem -0.1rem rgba($color-black, 0.04),
+    0 1.2rem 1.6rem -0.4rem rgba($color-black, 0.02);
+  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
+  will-change: box-shadow transform;
+  overflow: hidden;
+
+  .cards--list & {
+    grid-template-rows: [logo-start content-start] 100% [content-end logo-end];
+    grid-template-columns: [logo-start] 40rem [logo-end content-start] auto [content-end];
+    grid-row-gap: 2.25rem;
+  }
+
+  &__hover {
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 0 1.2rem 2.4rem -0.4rem rgba($color-black, 0.2), 0 6.4rem 2.4rem -4.8rem rgba($color-black, 0.2),
+        0 12rem 4.8rem -10.8rem rgba($color-black, 0.2);
+      // soft shadow for white theme
+      // box-shadow: 0 0.8rem 0.8rem -0.8rem rgba($color-black, 0.24), 0 0.4rem 0.8rem -0.4rem rgba($color-black, 0.16),
+      //   0 2.4rem 3.2rem -0.8rem rgba($color-black, 0.08);
+    }
+
+    .cards--list & {
+      &:hover,
+      &:focus,
+      &:active {
+        transform: translateY(-0.8rem);
+        box-shadow: 0 1.2rem 2.4rem -0.4rem rgba($color-black, 0.2), 0 6.4rem 2.4rem -4.8rem rgba($color-black, 0.2),
+          0 12rem 4.8rem -10.8rem rgba($color-black, 0.2);
+        // soft shadow for white theme
+        // box-shadow: 0 0.8rem 0.8rem -0.8rem rgba($color-black, 0.24), 0 0.4rem 0.8rem -0.4rem rgba($color-black, 0.16),
+        //   0 2.4rem 3.2rem -0.8rem rgba($color-black, 0.08);
+      }
+    }
+  }
+
+  /*----------  Overlay  ----------*/
+
+  &__overlay {
+    filter: brightness(0.5);
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  /*----------  Icon  ----------*/
+
+  &__icon {
+    position: relative;
+    grid-row: logo-start / logo-end;
+    grid-column: logo-start / logo-end;
+
+    display: grid;
+    place-content: center;
+    user-select: none;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: $color-white;
+    border-radius: 1.6rem 1.6rem 0 0;
+    filter: brightness(0.8);
+
+    .cards--list & {
+      border-radius: 1.6rem 0 0 1.6rem;
+      overflow: hidden;
+    }
+  }
+
+  &__content {
+    grid-row: content-start / content-end;
+    grid-column: content-start / content-end;
+
+    display: grid;
+    grid-template-rows: auto max-content;
+    grid-template-columns: 100%;
+    background-color: inherit;
+    .cards--list & {
+      grid-template-rows: 20.8rem 9rem;
+      border-radius: inherit;
+      border-top-left-radius: unset;
+      border-bottom-left-radius: unset;
+    }
+
+    transition: transform 100ms ease-in-out;
+    will-change: transform;
+    .card__hover:hover & {
+      transform: translateY(-8rem);
+      .cards--list & {
+        transform: none;
+      }
+    }
+
+    .content__row {
+      padding: 3.2rem;
+
+      &.bottomBar {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-column-gap: 4rem;
+        grid-row-gap: 3rem;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 1.6rem 3.2rem;
+        border-top: 2px solid $color-black-lighter;
+
+        .cards--list & {
+          grid-template-columns: auto max-content [cta-start] max-content [cta-end];
+          grid-template-rows: [cta-start] auto [cta-end];
+          grid-column-gap: 4rem;
+          justify-content: unset;
+        }
+      }
+    }
+
+    .hiddenRow {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 1.6rem 3.2rem;
+
+      display: flex;
+      justify-content: space-between;
+      background-color: inherit;
+      // opacity: 0;
+      // transition: opacity 100ms ease-in-out;
+      // will-change: opacity;
+      // .card__hover:hover & {
+      //   opacity: 1;
+      // }
+      .cards--list & {
+        display: none;
+      }
+    }
+
+    /*----------  price  ----------*/
+
+    .price {
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 1.6rem;
+      align-items: center;
+      justify-content: start;
+    }
+
+    /*----------  metadata  ----------*/
+
+    .metadata {
+      width: fit-content;
+
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 4rem;
+      justify-items: center;
+      align-items: center;
+
+      &__item {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 0.8rem;
+      }
+    }
+
+    /*----------  details  ----------*/
+
+    .details {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: max-content auto;
+      grid-row-gap: 2rem;
+      padding-bottom: 2.4rem;
+
+      &__title {
+        display: grid;
+        grid-template-columns: auto max-content;
+        grid-gap: 1rem;
+        align-items: start;
+        white-space: pre-line;
+      }
+
+      &__tags {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        & > * {
+          width: fit-content;
+          &:not(:last-child) {
+            margin-bottom: 0.8rem;
+          }
+        }
+      }
+
+      &__description {
+        width: 87.5%;
+        white-space: pre-line;
+        color: $color-light-gray;
+      }
+
+      &__ratings {
+        height: 2.4rem;
+      }
+    }
+  }
+
+  /*----------  discountPercentage  ----------*/
+
+  .discountPercentage {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 0;
+
+    &::before {
+      content: none;
+    }
+
+    .cards--list & {
+      position: relative;
+      top: 0;
+      left: 0;
+
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   height: 2.85rem;
+      //   width: 2.85rem;
+      //   background-color: $color-teal;
+      //   z-index: -1;
+
+      //   transform: rotateZ(45deg);
+      //   transform-origin: top left;
+      //   clip-path: polygon(0 0, 100% 0, 0 100%, 0 0);
+      // }
+    }
+
+    & .tag {
+      position: relative;
+      border: 1px solid rgba($color-black, 0.25);
+      box-shadow: 0 0 1rem rgba($color-black, 0.2);
+
+      // .cards--list & {
+      //   border-top-left-radius: 0;
+      //   border-top-right-radius: 0;
+      // }
+    }
+  }
+
+  /*----------  Utilities  ----------*/
+
+  .text__lineThrough {
+    text-decoration: line-through;
+    color: $color-light-gray;
+  }
+
+  .verticalSeparator {
+    margin: 0 0.8rem;
+    @include mqMaxW(W700) {
+      margin: 0 1.6rem;
+    }
+  }
+
+  .tag {
+    padding: 0.6rem 1.2rem;
+
+    border-radius: 0.4rem;
+    color: $color-black;
+
+    background-color: $color-teal-light;
+    &--yellow {
+      background-color: $color-yellow-dark;
+    }
+    &--yellow-gold {
+      background-color: $color-yellow-gold;
+    }
+    &--white {
+      background-color: $color-white-bg;
+    }
+    &--red {
+      background-color: $color-red;
+      color: $color-white-bg;
+    }
+    &--pink {
+      background-color: $color-pink;
+      color: $color-white-bg;
+    }
+    &--blue {
+      background-color: $color-blue;
+      color: $color-white-bg;
+    }
+  }
+
+  /*----------  Varieties  ----------*/
+
+  &--course {
+    @extend .card;
+    background-color: $color-black-dark;
+  }
+
+  &--bundle,
+  &--preLaunch {
+    @extend .card;
+    background-color: $color-black-dark;
+
+    padding: 2px;
+    margin: -2px;
+
+    position: relative;
+    z-index: 0;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: $linGrad-H-blue-teal;
+    }
+  }
+}
+
+/*=====  End of Card List  ======*/
